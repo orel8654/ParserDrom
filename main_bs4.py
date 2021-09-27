@@ -1,12 +1,12 @@
+import fake_useragent
 import requests
 from bs4 import BeautifulSoup
 import csv
 import time
 from card import *
 
-HEADERS = {'user-agent': 'put_your_user_agent_here', 'accept': '*/*'}
+HEADERS = {'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Safari/605.1.15', 'accept': '*/*'}
 FILE = 'cars.csv'
-
 def get_html(url, params=None):
     r = requests.get(url, headers=HEADERS, params=params)
     return r
@@ -61,8 +61,7 @@ def save_file(items, path):
         for i in items:
             writer.writerow([i['title'], i['link'], i['price'], i['set'], i['city'], i['engine'], i['transmission'], i['power'], i['wheel'], i['color'], i['milage'], i['rule'], i['crime'], i['police'],i['image'], i['diskription']])
 
-def parse():
-    url = input('Put your Drom URL: ')
+def parse(url):
     time.sleep(2)
     html = get_html(url)
     if html.status_code == 200:
@@ -93,5 +92,3 @@ def parse():
         print(f'Takes {len(cars)} cars')
     else:
         print('Error')
-
-parse()

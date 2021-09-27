@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-HEADERS = {'user-agent': 'put_your_user_agent_here', 'accept': '*/*'}
+HEADERS = {'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Safari/605.1.15', 'accept': '*/*'}
 
 def engine(url, params=None):
     try:
